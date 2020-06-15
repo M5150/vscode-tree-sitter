@@ -18,6 +18,7 @@ package
 private
 protected
 public
+readonly
 static
 super
 this
