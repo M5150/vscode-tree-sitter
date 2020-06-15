@@ -354,6 +354,21 @@ export function colorTypescript(
     const setScope = setScopeAndRangeToColorsMap(colors);
 
     switch (cursor.nodeType) {
+      case 'instanceof':
+        setScope('keyword.operator.instanceof', cursor);
+
+        break;
+
+      case 'as_expression':
+        setScope('keyword.operator.as', cursor);
+
+        break;
+
+      case 'new_expression':
+        setScope('keyword.operator.new', cursor);
+
+        break;
+
       case "identifier":
         if (parent == "function") {
           setScope('entity.name.function', cursor);
@@ -374,6 +389,12 @@ export function colorTypescript(
         break;
 
       case "property_identifier":
+        if (parent === 'enum_body') {
+          setScope('variable.other.enummember', cursor);
+          
+          break;
+        }
+
         setScope('variable', cursor);
 
         break;

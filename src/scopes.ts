@@ -25,7 +25,7 @@ export function find(scope: string): TextMateRuleSettings | undefined {
 export async function load() {
   // Remove any previous theme
   colors.clear();
-  
+
   // Find out current color theme
   const themeName = vscode.workspace
     .getConfiguration("workbench")
