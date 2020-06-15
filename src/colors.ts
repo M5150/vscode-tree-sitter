@@ -407,6 +407,24 @@ export function colorTypescript(
         if (parent === "property_signature") {
           setScope('keyword.operator.optional.ts', cursor);
         }
+
+        break;
+
+      case '${':
+        if (parent === 'template_substitution') {
+          setScope('punctuation.definition.template-expression.begin', cursor);
+        }
+
+        break;
+
+      case '}':
+        if (parent === 'template_substitution') {
+          setScope('punctuation.definition.template-expression.end', cursor);
+        }
+
+        break;
+
+      default:
     }
   }
 
